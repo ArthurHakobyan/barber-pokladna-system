@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-500 py-3">
       <div className="mx-8">
-        <h1 className="text-neutral-200 font-bold">Double H</h1>
+        <h1 className="text-neutral-200 font-bold">Double H Barber Shop</h1>
       </div>
     </nav>
   );

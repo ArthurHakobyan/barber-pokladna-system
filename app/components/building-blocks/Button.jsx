@@ -2,7 +2,9 @@ import React from "react";
 import { BUTTON_TYPES } from "@/app/data/button-types";
 
 const Button = (props) => {
-  const { type, btnText } = props;
+  const { type, btnText, onClick } = props;
+
+  // Defining Buttons ClassNames Depending on the button type 
   const getButtonClass = () => {
     switch (type) {
       case BUTTON_TYPES.STRIHANI:
@@ -31,7 +33,7 @@ const Button = (props) => {
   };
 
   return (
-    <button className={`${getButtonClass()} py-4 px-6 mx-2 my-2 text-white`}>
+    <button onClick={onClick} className={`${getButtonClass()} py-4 px-6 mx-2 my-2 text-white`}>
       {btnText}
     </button>
   );
