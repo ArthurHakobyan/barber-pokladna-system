@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { BUTTON_TYPES } from "@/app/data/button-types";
 

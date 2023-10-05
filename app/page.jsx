@@ -5,32 +5,71 @@ import Service from "./components/layout-components/Service";
 import Navbar from "./components/layout-components/Navbar";
 import Payment from "./components/layout-components/Payment";
 import { BUTTON_TYPES } from "@/app/data/button-types";
+import Confirm from "./components/layout-components/Confirm";
 
 export default function Home() {
+  //STATE OF THE APP
   const [selectedService, setSelectedService] = useState(null);
-  const [selectedBarber, setSelectedBarber] = useState({
-    first: 'Artur',
-    second: 'Lukas'
+  const [selectedBarber] = useState({
+    first: "Artur",
+    second: "Lukas",
+  });
+  const [data, setData] = useState({
+    name: "",
+    service: "",
+    price: "",
+    payment: "",
   });
   const [price, setPrice] = useState(null);
 
+  //SERVICES BUTTONS ACTIONS
   const handleStrihani = (serviceName) => {
     setSelectedService(serviceName);
+    setData({ ...data, price: "550", service: serviceName });
     setPrice(550);
   };
 
   const handleVousy = (serviceName) => {
     setSelectedService(serviceName);
+    setData({ ...data, price: "390", service: serviceName });
     setPrice(390);
   };
 
-  const handleBarberClick = (barberName) => {
-    console.log(barberName)
+  const handleStrihaVousy = (serviceName) => {
+    setSelectedService(serviceName);
+    setData({ ...data, price: "890", service: serviceName });
+    setPrice(890);
   };
 
+  const handleStrojek = (serviceName) => {
+    setSelectedService(serviceName);
+    setData({ ...data, price: "390", service: serviceName });
+    setPrice(390);
+  };
+
+  const handleStrojekaVousy = (serviceName) => {
+    setSelectedService(serviceName);
+    setData({ ...data, price: "690", service: serviceName });
+    setPrice(690);
+  };
+  const handleHoleni = (serviceName) => {
+    setSelectedService(serviceName);
+    setData({ ...data, price: "450", service: serviceName });
+    setPrice(450);
+  };
+
+  // BARBERS BUTTONS ACTION
+  const handleBarberClick = (barberName) => {
+    setData({ ...data, name: barberName });
+  };
+
+  //PAYMENTS BUTTONS ACTION
   const handlePyamentClick = (paymentName) => {
-    
-    console.log(selectedService, price, paymentName);
+    setData({ ...data, payment: paymentName });
+  };
+
+  const handleConfirmClick = () => {
+    console.log(data);
   };
 
   return (
@@ -39,7 +78,9 @@ export default function Home() {
         <div>
           <Navbar />
         </div>
+        {/* APP WRAPPER */}
         <div className="flex">
+          {/* SERVICES WRAPPER */}
           <div className="flex-col flex-1">
             <Service
               serviceName="Klasicke strihani"
@@ -53,8 +94,33 @@ export default function Home() {
               onServiceClick={handleVousy}
               price={price}
             />
+            <Service
+              serviceName="Klasicke Striahni a Uprava Vousu"
+              type={BUTTON_TYPES.KOMPLET}
+              onServiceClick={handleStrihaVousy}
+              price={price}
+            />
+            <Service
+              serviceName="Strihani Strojkem"
+              type={BUTTON_TYPES.STROJEK}
+              onServiceClick={handleStrojek}
+              price={price}
+            />
+            <Service
+              serviceName="Strihani Strojkem a uprava vousu"
+              type={BUTTON_TYPES.STROJEKKOMPLET}
+              onServiceClick={handleStrojekaVousy}
+              price={price}
+            />
+            <Service
+              serviceName="Tradicni Holeni"
+              type={BUTTON_TYPES.HOLENI}
+              onServiceClick={handleHoleni}
+              price={price}
+            />
           </div>
 
+          {/* BARBERS WRAPPER */}
           <div className="flex flex-1 bg-gray-100">
             <Barber
               barberName={selectedBarber.first}
@@ -67,10 +133,14 @@ export default function Home() {
               onBarberClick={handleBarberClick}
             />
           </div>
+
+          {/* PAYMENTS WRAPPER */}
           <div className="flex-1">
+            {/* DATA TABLE */}
             <div className=" text-center py-[45%]">
               <p className="text-gray-400">Vybrat způsob platby.</p>
             </div>
+
             <div className="flex justify-center items-center">
               <Payment
                 selectedService={selectedService}
@@ -85,6 +155,9 @@ export default function Home() {
                 paymentName="Kartou"
               />
             </div>
+
+            {/* CONFIRM BUTTON */}
+            <Confirm onConfirmClick={handleConfirmClick} btnText="Potvrdit" />
           </div>
         </div>
       </section>
