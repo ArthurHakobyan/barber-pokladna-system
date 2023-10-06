@@ -23,6 +23,7 @@ export default function Home() {
       payment: "",
     },
   ]);
+  const [tableData, setTableData] = useState([]);
   const [price, setPrice] = useState(null);
 
   //SERVICES BUTTONS ACTIONS
@@ -36,6 +37,11 @@ export default function Home() {
         service: serviceName,
       },
     ]);
+    const newTableData = [
+      ...tableData,
+      { name: "", service: serviceName, price: "550", payment: "" },
+    ];
+    setTableData(newTableData);
     setPrice(550);
   };
 
@@ -49,6 +55,11 @@ export default function Home() {
         service: serviceName,
       },
     ]);
+    const newTableData = [
+      ...tableData,
+      { name: "", service: serviceName, price: "390", payment: "" },
+    ];
+    setTableData(newTableData);
     setPrice(390);
   };
 
@@ -62,6 +73,11 @@ export default function Home() {
         service: serviceName,
       },
     ]);
+    const newTableData = [
+      ...tableData,
+      { name: "", service: serviceName, price: "890", payment: "" },
+    ];
+    setTableData(newTableData);
     setPrice(890);
   };
 
@@ -75,6 +91,11 @@ export default function Home() {
         service: serviceName,
       },
     ]);
+    const newTableData = [
+      ...tableData,
+      { name: "", service: serviceName, price: "390", payment: "" },
+    ];
+    setTableData(newTableData);
     setPrice(390);
   };
 
@@ -88,6 +109,11 @@ export default function Home() {
         service: serviceName,
       },
     ]);
+    const newTableData = [
+      ...tableData,
+      { name: "", service: serviceName, price: "690", payment: "" },
+    ];
+    setTableData(newTableData);
     setPrice(690);
   };
   const handleHoleni = (serviceName) => {
@@ -100,6 +126,11 @@ export default function Home() {
         service: serviceName,
       },
     ]);
+    const newTableData = [
+      ...tableData,
+      { name: "", service: serviceName, price: "450", payment: "" },
+    ];
+    setTableData(newTableData);
     setPrice(450);
   };
 
@@ -112,6 +143,14 @@ export default function Home() {
         name: barberName,
       },
     ]);
+    const updatedData = tableData.map((item, index) => {
+      if (index === tableData.length - 1) {
+        // Update the first row (assuming services and price are in the first row)
+        return { ...item, name: barberName };
+      }
+      return item;
+    });
+    setTableData(updatedData);
     console.log(data);
   };
 
@@ -124,6 +163,13 @@ export default function Home() {
         payment: paymentName,
       },
     ]);
+    const updatedData = tableData.map((item, index) => {
+      if (index === tableData.length - 1) {
+        return { ...item, payment: paymentName };
+      }
+      return item;
+    });
+    setTableData(updatedData);
   };
 
   const handleConfirmClick = () => {
@@ -195,10 +241,10 @@ export default function Home() {
           {/* PAYMENTS WRAPPER */}
           <div className="flex-1">
             {/* DATA TABLE */}
-            <div className="flex justify-center text-center py-[45%]">
-              <Table data={data} />
+            <div className="flex justify-center text-center py-[5%]">
+              <Table tableData={tableData} />
             </div>
-
+              <p className="flex justify-center text-gray-600">Vyberte Sluzbu</p>
             <div className="flex justify-center items-center">
               <Payment
                 selectedService={selectedService}

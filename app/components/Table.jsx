@@ -1,6 +1,6 @@
 import React from "react";
 
-const Table = ({ data }) => {
+const Table = ({ tableData }) => {
   return (
     <table>
       <thead>
@@ -12,7 +12,7 @@ const Table = ({ data }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((item, index) => (
+        {tableData.map((item, index) => (
           <tr key={index}>
             <td className="border border-gray-700 px-4 py-2">{item.name}</td>
             <td className="border border-gray-700 px-4 py-2">{item.service}</td>
