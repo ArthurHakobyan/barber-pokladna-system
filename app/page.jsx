@@ -6,6 +6,7 @@ import Navbar from "./components/layout-components/Navbar";
 import Payment from "./components/layout-components/Payment";
 import { BUTTON_TYPES } from "@/app/data/button-types";
 import Confirm from "./components/layout-components/Confirm";
+import Table from "./components/Table";
 
 export default function Home() {
   //STATE OF THE APP
@@ -14,58 +15,115 @@ export default function Home() {
     first: "Artur",
     second: "Lukas",
   });
-  const [data, setData] = useState({
-    name: "",
-    service: "",
-    price: "",
-    payment: "",
-  });
+  const [data, setData] = useState([
+    {
+      name: "",
+      service: "",
+      price: "",
+      payment: "",
+    },
+  ]);
   const [price, setPrice] = useState(null);
 
   //SERVICES BUTTONS ACTIONS
   const handleStrihani = (serviceName) => {
     setSelectedService(serviceName);
-    setData({ ...data, price: "550", service: serviceName });
+    // Update specific properties while preserving others
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        price: "550",
+        service: serviceName,
+      },
+    ]);
     setPrice(550);
   };
 
   const handleVousy = (serviceName) => {
     setSelectedService(serviceName);
-    setData({ ...data, price: "390", service: serviceName });
+    // Update specific properties while preserving others
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        price: "390",
+        service: serviceName,
+      },
+    ]);
     setPrice(390);
   };
 
   const handleStrihaVousy = (serviceName) => {
     setSelectedService(serviceName);
-    setData({ ...data, price: "890", service: serviceName });
+    // Update specific properties while preserving others
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        price: "890",
+        service: serviceName,
+      },
+    ]);
     setPrice(890);
   };
 
   const handleStrojek = (serviceName) => {
     setSelectedService(serviceName);
-    setData({ ...data, price: "390", service: serviceName });
+    // Update specific properties while preserving others
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        price: "390",
+        service: serviceName,
+      },
+    ]);
     setPrice(390);
   };
 
   const handleStrojekaVousy = (serviceName) => {
     setSelectedService(serviceName);
-    setData({ ...data, price: "690", service: serviceName });
+    // Update specific properties while preserving others
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        price: "690",
+        service: serviceName,
+      },
+    ]);
     setPrice(690);
   };
   const handleHoleni = (serviceName) => {
     setSelectedService(serviceName);
-    setData({ ...data, price: "450", service: serviceName });
+    // Update specific properties while preserving others
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        price: "450",
+        service: serviceName,
+      },
+    ]);
     setPrice(450);
   };
 
   // BARBERS BUTTONS ACTION
   const handleBarberClick = (barberName) => {
-    setData({ ...data, name: barberName });
+    // Update specific properties while preserving others
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        name: barberName,
+      },
+    ]);
+    console.log(data);
   };
 
   //PAYMENTS BUTTONS ACTION
   const handlePyamentClick = (paymentName) => {
-    setData({ ...data, payment: paymentName });
+    // Update specific properties while preserving others
+    setData((prevData) => [
+      {
+        ...prevData[0],
+        payment: paymentName,
+      },
+    ]);
   };
 
   const handleConfirmClick = () => {
@@ -137,8 +195,8 @@ export default function Home() {
           {/* PAYMENTS WRAPPER */}
           <div className="flex-1">
             {/* DATA TABLE */}
-            <div className=" text-center py-[45%]">
-              <p className="text-gray-400">Vybrat způsob platby.</p>
+            <div className="flex justify-center text-center py-[45%]">
+              <Table data={data} />
             </div>
 
             <div className="flex justify-center items-center">
