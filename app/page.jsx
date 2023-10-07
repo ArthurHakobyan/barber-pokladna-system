@@ -172,9 +172,9 @@ export default function Home() {
     setTableData(updatedData);
   };
 
-  const handleConfirmClick = () => {
-    console.log(data);
-  };
+  // const handleConfirmClick = () => {
+  //   console.log(data);
+  // };
 
   return (
     <>
@@ -244,7 +244,7 @@ export default function Home() {
             <div className="flex justify-center text-center py-[5%]">
               <Table tableData={tableData} />
             </div>
-              <p className="flex justify-center text-gray-600">Vyberte Sluzbu</p>
+              <p className="flex justify-center text-gray-600 font-bold">Vyberte Službu</p>
             <div className="flex justify-center items-center">
               <Payment
                 selectedService={selectedService}
@@ -261,7 +261,7 @@ export default function Home() {
             </div>
 
             {/* CONFIRM BUTTON */}
-            <Confirm onConfirmClick={handleConfirmClick} btnText="Potvrdit" />
+            {/* <Confirm onConfirmClick={handleConfirmClick} btnText="Potvrdit" /> */}
           </div>
         </div>
       </section>
