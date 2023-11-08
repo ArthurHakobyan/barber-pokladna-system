@@ -5,10 +5,10 @@ const Table = ({ tableData }) => {
     <table>
       <thead>
         <tr>
-          <th className="px-2">Name</th>
-          <th className="px-2">Service</th>
-          <th className="px-2">Price</th>
-          <th className="px-2">Payment</th>
+          <th className="px-2">Jméno</th>
+          <th className="px-2">Služba</th>
+          <th className="px-2">Cena</th>
+          <th className="px-2">Platba</th>
         </tr>
       </thead>
       <tbody>

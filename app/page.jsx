@@ -10,6 +10,7 @@ import Table from "./components/Table";
 
 export default function Home() {
   //STATE OF THE APP
+  const [buttonClicked, setButtonClicked] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [selectedBarber] = useState({
     first: "Artur",
@@ -26,112 +27,148 @@ export default function Home() {
   const [tableData, setTableData] = useState([]);
   const [price, setPrice] = useState(null);
 
+  //Change guaiding text above the payment buttons
+
   //SERVICES BUTTONS ACTIONS
   const handleStrihani = (serviceName) => {
-    setSelectedService(serviceName);
-    // Update specific properties while preserving others
-    setData((prevData) => [
-      {
-        ...prevData[0],
-        price: "550",
-        service: serviceName,
-      },
-    ]);
-    const newTableData = [
-      ...tableData,
-      { name: "", service: serviceName, price: "550", payment: "" },
-    ];
-    setTableData(newTableData);
-    setPrice(550);
+    if (!buttonClicked) {
+      setSelectedService(serviceName);
+      // Update specific properties while preserving others
+      setData((prevData) => [
+        {
+          ...prevData[0],
+          price: "550",
+          service: serviceName,
+        },
+      ]);
+      const newTableData = [
+        ...tableData,
+        { name: "", service: serviceName, price: "550", payment: "" },
+      ];
+      setTableData(newTableData);
+      setPrice(550);
+      setButtonClicked(true);
+    } else {
+      alert("Prosím, vyberte holice");
+    }
   };
 
   const handleVousy = (serviceName) => {
-    setSelectedService(serviceName);
-    // Update specific properties while preserving others
-    setData((prevData) => [
-      {
-        ...prevData[0],
-        price: "390",
-        service: serviceName,
-      },
-    ]);
-    const newTableData = [
-      ...tableData,
-      { name: "", service: serviceName, price: "390", payment: "" },
-    ];
-    setTableData(newTableData);
-    setPrice(390);
+    if (!buttonClicked) {
+      setSelectedService(serviceName);
+      // Update specific properties while preserving others
+      setData((prevData) => [
+        {
+          ...prevData[0],
+          price: "390",
+          service: serviceName,
+        },
+      ]);
+      const newTableData = [
+        ...tableData,
+        { name: "", service: serviceName, price: "390", payment: "" },
+      ];
+      setTableData(newTableData);
+      setPrice(390);
+      setButtonClicked(true);
+    } else {
+      alert("Prosím, vyberte holice");
+    }
   };
 
   const handleStrihaVousy = (serviceName) => {
-    setSelectedService(serviceName);
-    // Update specific properties while preserving others
-    setData((prevData) => [
-      {
-        ...prevData[0],
-        price: "890",
-        service: serviceName,
-      },
-    ]);
-    const newTableData = [
-      ...tableData,
-      { name: "", service: serviceName, price: "890", payment: "" },
-    ];
-    setTableData(newTableData);
-    setPrice(890);
+    if (!buttonClicked) {
+      setSelectedService(serviceName);
+      // Update specific properties while preserving others
+      setData((prevData) => [
+        {
+          ...prevData[0],
+          price: "890",
+          service: serviceName,
+        },
+      ]);
+      const newTableData = [
+        ...tableData,
+        { name: "", service: serviceName, price: "890", payment: "" },
+      ];
+      setTableData(newTableData);
+      setPrice(890);
+
+      setButtonClicked(true);
+    } else {
+      alert("Prosím, vyberte holice");
+    }
   };
 
   const handleStrojek = (serviceName) => {
-    setSelectedService(serviceName);
-    // Update specific properties while preserving others
-    setData((prevData) => [
-      {
-        ...prevData[0],
-        price: "390",
-        service: serviceName,
-      },
-    ]);
-    const newTableData = [
-      ...tableData,
-      { name: "", service: serviceName, price: "390", payment: "" },
-    ];
-    setTableData(newTableData);
-    setPrice(390);
+    if (!buttonClicked) {
+      setSelectedService(serviceName);
+      // Update specific properties while preserving others
+      setData((prevData) => [
+        {
+          ...prevData[0],
+          price: "390",
+          service: serviceName,
+        },
+      ]);
+      const newTableData = [
+        ...tableData,
+        { name: "", service: serviceName, price: "390", payment: "" },
+      ];
+      setTableData(newTableData);
+      setPrice(390);
+
+      setButtonClicked(true);
+    } else {
+      alert("Prosím, vyberte holice");
+    }
   };
 
   const handleStrojekaVousy = (serviceName) => {
-    setSelectedService(serviceName);
-    // Update specific properties while preserving others
-    setData((prevData) => [
-      {
-        ...prevData[0],
-        price: "690",
-        service: serviceName,
-      },
-    ]);
-    const newTableData = [
-      ...tableData,
-      { name: "", service: serviceName, price: "690", payment: "" },
-    ];
-    setTableData(newTableData);
-    setPrice(690);
+    if (!buttonClicked) {
+      setSelectedService(serviceName);
+      // Update specific properties while preserving others
+      setData((prevData) => [
+        {
+          ...prevData[0],
+          price: "690",
+          service: serviceName,
+        },
+      ]);
+      const newTableData = [
+        ...tableData,
+        { name: "", service: serviceName, price: "690", payment: "" },
+      ];
+      setTableData(newTableData);
+      setPrice(690);
+
+      setButtonClicked(true);
+    } else {
+      alert("Prosím, vyberte holice");
+    }
   };
   const handleHoleni = (serviceName) => {
-    setSelectedService(serviceName);
-    // Update specific properties while preserving others
-    setData((prevData) => [
-      {
-        ...prevData[0],
-        price: "450",
-        service: serviceName,
-      },
-    ]);
-    const newTableData = [
-      ...tableData,
-      { name: "", service: serviceName, price: "450", payment: "" },
-    ];
-    setTableData(newTableData);
-    setPrice(450);
+    if (!buttonClicked) {
+      setSelectedService(serviceName);
+      // Update specific properties while preserving others
+      setData((prevData) => [
+        {
+          ...prevData[0],
+          price: "450",
+          service: serviceName,
+        },
+      ]);
+      const newTableData = [
+        ...tableData,
+        { name: "", service: serviceName, price: "450", payment: "" },
+      ];
+      setTableData(newTableData);
+      setPrice(450);
+
+      setButtonClicked(true);
+    } else {
+      alert("Prosím, vyberte holice");
+    }
   };
 
   // BARBERS BUTTONS ACTION
@@ -152,6 +189,7 @@ export default function Home() {
     });
     setTableData(updatedData);
     console.log(data);
+    setButtonClicked(false);
   };
 
   //PAYMENTS BUTTONS ACTION
@@ -183,13 +221,14 @@ export default function Home() {
           <Navbar />
         </div>
         {/* APP WRAPPER */}
-        <div className="flex">
+        <div className="md:flex">
           {/* SERVICES WRAPPER */}
           <div className="flex-col flex-1">
             <Service
               serviceName="Klasicke strihani"
               type={BUTTON_TYPES.STRIHANI}
               onServiceClick={handleStrihani}
+              disabled={buttonClicked}
               price={price}
             />
             <Service
@@ -239,12 +278,10 @@ export default function Home() {
           </div>
 
           {/* PAYMENTS WRAPPER */}
-          <div className="flex-1">
-            {/* DATA TABLE */}
-            <div className="flex justify-center text-center py-[5%]">
-              <Table tableData={tableData} />
-            </div>
-              <p className="flex justify-center text-gray-600 font-bold">Vyberte Službu</p>
+          <div>
+            <p className="flex justify-center text-gray-600 font-bold">
+              {selectedService ? "vybrat holice " : "vybrst sluzbu"}
+            </p>
             <div className="flex justify-center items-center">
               <Payment
                 selectedService={selectedService}
@@ -260,8 +297,13 @@ export default function Home() {
               />
             </div>
 
-            {/* CONFIRM BUTTON */}
-            {/* <Confirm onConfirmClick={handleConfirmClick} btnText="Potvrdit" /> */}
+            {/* DATA TABLE */}
+            <div className="flex justify-center text-center py-[5%]">
+              <Table tableData={tableData} />
+
+              {/* CONFIRM BUTTON */}
+              {/* <Confirm onConfirmClick={handleConfirmClick} btnText="Potvrdit" /> */}
+            </div>
           </div>
         </div>
       </section>
