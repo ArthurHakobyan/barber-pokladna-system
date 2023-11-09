@@ -188,7 +188,7 @@ export default function Home() {
       return item;
     });
     setTableData(updatedData);
-    console.log(data);
+    // console.log(data);
     setButtonClicked(false);
   };
 
